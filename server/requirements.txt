@@ -1,0 +1,5 @@
+Django==5.2.17
+gunicorn==23.0.0
+whitenoise==6.12.0
+Authlib==1.8.0
+requests==2.34.2

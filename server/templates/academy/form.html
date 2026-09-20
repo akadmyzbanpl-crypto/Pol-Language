@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block content %}<section class="wide-form"><a class="muted" href="{% url 'dashboard' %}">بازگشت به پنل</a><div class="panel" style="margin-top:16px"><h1>{{ title }}</h1><form class="form" method="post">{% csrf_token %}{{ form.as_p }}<button class="btn">ذخیره و ادامه</button></form></div></section>{% endblock %}

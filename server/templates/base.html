@@ -1,0 +1,21 @@
+{% load static %}<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="آموزشگاه زبان پل؛ دوره‌های حضوری و آنلاین انگلیسی، تعیین سطح و فضای آموزشی دانشجو و استاد">
+<title>{% block title %}آموزشگاه زبان پل{% endblock %}</title>
+<link rel="stylesheet" href="{% static 'pol/site.css' %}"><link rel="icon" href="{% static 'pol/favicon.svg' %}">
+</head>
+<body>
+{% if demo_mode %}<div class="demo">محیط آزمایشی آموزشگاه پل · دوره‌ها و اطلاعات اولیه نمونه‌اند.</div>{% endif %}
+<div class="announcement"><div class="wrap"><span>دوره‌های انگلیسی · یادگیری حضوری و آنلاین</span><span lang="en" dir="ltr">POL LANGUAGE CENTER</span></div></div>
+<div class="topbar"><div class="wrap top">
+<a href="{% url 'home' %}" class="brand"><img src="{% static 'pol/logo.jpg' %}" alt="لوگوی آموزشگاه زبان پل"><div><b>پُل زبان</b><small lang="en">Pol Language Center</small></div></a>
+<nav class="nav" aria-label="منوی اصلی"><a href="{% url 'home' %}">خانه</a><a href="{% url 'catalog' %}">دوره‌ها</a><a href="{% url 'home' %}#teachers">آموزگاران</a><a href="{% url 'home' %}#about">درباره پل</a><a href="{% url 'home' %}#questions">پرسش‌ها</a><a href="{% url 'home' %}#contact">تماس</a></nav>
+<div class="actions header-actions">{% if user.is_authenticated %}<a class="btn secondary small" href="{% url 'dashboard' %}">پنل من</a><form action="{% url 'logout' %}" method="post">{% csrf_token %}<button class="btn link small">خروج</button></form>{% else %}<a class="signin-link" href="{% url 'login' %}">ورود / ثبت‌نام</a><a class="btn gold" href="{% url 'placement' %}">آزمون تعیین سطح</a>{% endif %}</div>
+</div></div>
+<main class="{% block main_class %}wrap{% endblock %}">
+{% for message in messages %}<div role="status" class="alert {{ message.tags }}">{{ message }}</div>{% endfor %}
+{% block content %}{% endblock %}</main>
+<footer class="footer" id="contact"><div class="wrap foot"><a href="{% url 'home' %}" class="brand footer-brand"><img src="{% static 'pol/logo.jpg' %}" alt=""><div><b>پُل زبان</b><small lang="en">Pol Language Center</small></div></a><div class="footer-links"><a href="{% url 'catalog' %}">دوره‌ها</a><a href="{% url 'home' %}#teachers">آموزگاران</a><a href="{% url 'home' %}#questions">پرسش‌ها</a><a href="{% url 'tickets' %}">پشتیبانی</a></div><div class="footer-note">پلی به سوی آینده‌ای بهتر<br><a href="{% url 'ticket_new' %}">ارتباط با آموزشگاه ←</a></div></div></footer>
+{% block scripts %}{% endblock %}</body></html>

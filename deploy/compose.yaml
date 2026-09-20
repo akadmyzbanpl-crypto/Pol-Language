@@ -1,0 +1,29 @@
+services:
+  web:
+    build: ../server
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - pol-data:/app/data
+    expose:
+      - "8000"
+  proxy:
+    image: caddy:2
+    restart: unless-stopped
+    environment:
+      PUBLIC_DOMAIN: ${PUBLIC_DOMAIN:?Set PUBLIC_DOMAIN in deploy/.env}
+      PANEL_DOMAIN: ${PANEL_DOMAIN:?Set PANEL_DOMAIN in deploy/.env}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ../public_html:/srv/pol-site:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - web
+volumes:
+  pol-data:
+  caddy-data:
+  caddy-config:

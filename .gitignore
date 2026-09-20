@@ -1,0 +1,28 @@
+# Local settings and service credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python environments and generated files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+node_modules/
+staticfiles/
+
+# Private runtime data
+data/
+backups/
+*.sqlite3
+*.sqlite3-*
+*.db
+*.log
+
+# Reproducible standalone export and local packages
+/Pol-Language.html
+*.zip
+.DS_Store
+Thumbs.db

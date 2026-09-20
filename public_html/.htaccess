@@ -1,0 +1,11 @@
+DirectoryIndex index.html
+AddDefaultCharset UTF-8
+ErrorDocument 404 /404.html
+
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Enable HTTPS redirection in your hosting panel after SSL is active.
+# This file is intended for the domain's document root.

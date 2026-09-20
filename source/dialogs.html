@@ -1,0 +1,24 @@
+<dialog id="course-dialog" aria-labelledby="course-dialog-title">
+  <header class="dialog-header"><h2 id="course-dialog-title">جزئیات دوره</h2><button class="dialog-close" data-close aria-label="بستن جزئیات دوره">×</button></header>
+  <div class="dialog-content" id="course-detail"></div>
+</dialog>
+<dialog id="access-dialog" aria-labelledby="access-title">
+  <header class="dialog-header"><h2 id="access-title">فضای آموزشی پل</h2><button class="dialog-close" data-close aria-label="بستن پنجره ورود">×</button></header>
+  <div class="dialog-content access-content">
+    <div class="access-icon" aria-hidden="true">↗</div>
+    <h3 id="access-heading">مسیر یادگیری‌ات را اینجا ادامه بده</h3>
+    <p id="access-message">ثبت‌نام آنلاین هنوز فعال نشده است. برای هماهنگی ثبت‌نام، اطلاعات تماس آموزشگاه را بررسی کن.</p>
+    <div class="actions" id="access-live" hidden><a class="btn gold" href="#access-dialog" data-backend="/login/">ورود به حساب</a><a class="btn secondary" href="#access-dialog" data-backend="/signup/">ساخت حساب دانشجو</a><a class="btn secondary" href="#access-dialog" data-backend="/auth/google/" id="google-link" hidden>ورود با گوگل</a></div>
+    <div class="actions" id="access-contact"><a class="btn gold" href="#contact" data-contact>اطلاعات تماس آموزشگاه</a></div>
+    <div id="access-demo"><p class="access-note portal-intro">با ساختار پنل‌ها آشنا شو؛ این بخش فقط نمونه نمایشی است.</p><div class="portal-roles"><button data-portal="student">پنل دانشجو</button><button data-portal="teacher">پنل استاد</button><button data-portal="admin">پنل مدیریت</button></div></div>
+  </div>
+</dialog>
+<dialog id="placement-dialog" aria-labelledby="placement-title">
+  <header class="dialog-header"><h2 id="placement-title">تعیین سطح اولیه انگلیسی</h2><button class="dialog-close" data-close aria-label="بستن تعیین سطح">×</button></header>
+  <div class="dialog-content" id="placement-content"></div>
+</dialog>
+<dialog id="portal-dialog" aria-labelledby="portal-title">
+  <header class="dialog-header"><h2 id="portal-title">نمونه پنل دانشجو</h2><button class="dialog-close" data-close aria-label="بستن نمونه پنل">×</button></header>
+  <div class="portal-demo-label">نمونه طراحی · نام‌ها، پیام‌ها، نمره‌ها و مبالغ این پنل آزمایشی هستند. اطلاعاتی ثبت یا ذخیره نمی‌شود.</div>
+  <div class="portal-frame"><nav class="portal-nav" id="portal-nav" aria-label="بخش‌های نمونه پنل"></nav><section class="portal-main" id="portal-main" aria-live="polite"></section></div>
+</dialog>

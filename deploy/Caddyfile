@@ -1,0 +1,12 @@
+{$PUBLIC_DOMAIN} {
+    root * /srv/pol-site
+    encode zstd gzip
+    header X-Content-Type-Options nosniff
+    header Referrer-Policy strict-origin-when-cross-origin
+    file_server
+}
+
+{$PANEL_DOMAIN} {
+    encode zstd gzip
+    reverse_proxy web:8000
+}
